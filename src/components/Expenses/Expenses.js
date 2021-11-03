@@ -21,6 +21,9 @@ const Expenses = (props) => {
 		// 	return expense;
 		// }
 	});
+	const deleteHandler = (id) => {
+		props.onDelete(id);
+	};
 
 	return (
 		<div>
@@ -30,7 +33,10 @@ const Expenses = (props) => {
 					onFilterByYear={filterByYearHandler}
 				/>
 				<ExpensesChart expenses={filtredExpenses} />
-				<ExpensesList items={filtredExpenses} />
+				<ExpensesList
+					onDelete={deleteHandler}
+					items={filtredExpenses}
+				/>
 			</Card>
 		</div>
 	);
